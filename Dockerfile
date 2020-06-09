@@ -20,10 +20,15 @@ RUN dnf -y install systemd && dnf clean all && \
 # Install pip and other requirements.
 RUN dnf makecache \
   && dnf -y install \
+    libffi-devel \
+    python3-dnf \
+    python3-devel \
     python3-pip \
+    python3-setuptools \
+    python3-wheel \
     sudo \
     which \
-    python3-dnf \
+  && dnf -y groupinstall "Development Tools" \
   && dnf clean all
 
 # Install Ansible via Pip.
