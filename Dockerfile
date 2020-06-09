@@ -24,6 +24,9 @@ RUN dnf makecache \
     sudo \
     which \
     python3-dnf \
+    python-devel \
+    libffi-devel \
+  && dnf -y groupinstall "Development Tools" \
   && dnf clean all
 
 # Install Ansible via Pip.
